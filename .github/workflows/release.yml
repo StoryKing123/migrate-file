@@ -12,7 +12,12 @@ on:
 jobs:
   get-tag:
     name: "Get Tag From Package Version"
-    runs-on: "ubuntu-latest"
+    strategy:
+        fail-fast: false
+        matrix:
+          platform: [macos-latest, windows-latest,ubuntu-latest]
+    runs-on: ${{ matrix.platform }}
+#     runs-on: "ubuntu-latest"
     outputs:
       pkg-version: ${{ steps.pkg-version.outputs.PKG_VERSION }} 
     steps:
