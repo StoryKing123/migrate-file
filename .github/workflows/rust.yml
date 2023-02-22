@@ -1,13 +1,12 @@
 name: "Release"
 
-permissions:
-  contents: "write"
+# permissions:
+#   contents: "write"
 
 on:
-  workflow_run:
-    workflows: ["Tag"]
-    types:
-      - "completed"
+  push:
+    tags:
+      - 'v*.*.*'
 
 jobs:
   get-tag:
