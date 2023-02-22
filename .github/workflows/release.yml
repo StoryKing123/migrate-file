@@ -71,7 +71,7 @@ jobs:
         uses: "taiki-e/upload-rust-binary-action@v1"
         with:
           bin: "migrate-file"
-          target: ${{ matrix.target }}
-          archive: $bin-${{ matrix.target }}
+          target: ${{ matrix.os }}
+          archive: $bin-${{ matrix.os }}
           ref: refs/tags/v${{ needs.get-tag.outputs.pkg-version }}
           token: ${{ secrets.GITHUB_TOKEN }}
