@@ -76,5 +76,6 @@ jobs:
           # [default value: windows]
           # [possible values: all, unix, windows, none]
           zip: windows
+          ref: refs/tags/v${{ needs.get-tag.outputs.pkg-version }}
           # (required) GitHub token for uploading assets to GitHub Releases.
           token: ${{ secrets.GITHUB_TOKEN }}
